@@ -1,0 +1,22 @@
+html,
+body {
+  height: 100%;
+}
+header {
+  width: 100%;
+  height: 60%;
+}
+.overlay {
+  height: 100%;
+  opacity: .9;
+  background-color: #569ea0;
+  z-index: 9999;
+}
+.the-world {
+  max-width: 1000px;
+}
+@media only screen and (max-width: 800px) {
+  .ocean {
+    height: 40%;
+  }
+}
