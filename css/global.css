@@ -10,15 +10,17 @@ li {
 .cf {
   clear: both;
 }
-header {
-  border-top: solid 5px #ffffff;
-  width: 100%;
-  height: 60%;
+.backgroundsize header {
   background: url(../images/splash.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+header {
+  border-top: solid 5px #ffffff;
+  width: 100%;
+  height: 60%;
 }
 .overlay {
   height: 100%;
@@ -27,18 +29,25 @@ header {
 }
 .overlay nav {
   color: #ffffff;
-  padding-top: 2em;
+  padding: 2em 1em 0em;
+  height: 3em;
 }
 .overlay nav .logo {
   float: left;
+  width: 3em;
+  height: 100%;
+  background-color: #3b9193;
 }
 .overlay nav ul {
+  line-height: 3em;
   float: right;
+  height: 100%;
 }
 .overlay nav ul li {
   margin-left: 8em;
   font-family: Raleway, sans-serif;
   display: inline-block;
+  cursor: pointer;
 }
 .the-world {
   max-width: 1000px;
