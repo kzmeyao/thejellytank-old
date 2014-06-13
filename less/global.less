@@ -11,10 +11,11 @@ ul, li {
   clear: both;
 }
 
-#jelly {
-  visibility: hidden;
-  display: block;
+.the-world {
+  max-width: 1000px;
   margin: auto;
+  padding: 0em 2em;
+  height: 100%;
 }
 
 .backgroundsize header {
@@ -33,20 +34,26 @@ header {
 
 .overlay {
   height: 100%;
-  background-color: rgba(92, 177, 172, .8);
+  background-color: rgba(92, 177, 172, .85);
   z-index:9999;
 
   @nav-height: 3em;
   nav {
     color: #ffffff;
-    padding: 2em 1em 0em;
     height: @nav-height;
+    padding-top: 1em;
 
     .logo {
       float: left;
       width: @nav-height;
       height: 100%;
       background-color: #3b9193;
+
+      #jelly {
+        visibility: hidden;
+        display: block;
+        margin: auto;
+      }
 
       &:before {
         content: '';
@@ -67,11 +74,39 @@ header {
       }
     }
   }
-}
 
-.the-world {
-  max-width: 1000px;
-  margin: auto;
+  .the-world:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .welcome {
+    vertical-align: middle;
+    color: #ffffff;
+    text-align: right;
+    margin-top: 5em;
+    h1 {
+      font-family: Lato, sans-serif;
+      font-weight: normal;
+    };
+    h2 {
+      font-family: Raleway, sans-serif;
+      font-weight: normal;
+      margin-top: -.5em;
+    };
+    button {
+      margin-top: 1em;
+      font-family: Lato, sans-serif;
+      color: #ffffff;
+      background: none;
+      border-radius: 4px;
+      border: #ffffff solid 1px;
+      padding: 1em 1.5em;
+      font-weight: 300;
+      outline:none;
+    }
+  }
 }
 
 @media only screen and (max-width: 800px) {
