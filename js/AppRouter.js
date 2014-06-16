@@ -6,14 +6,20 @@ var AppRouter = Backbone.Router.extend({
   },
 
   home : function() {
-
+    if(!this.view) {
+      this.view = new TheWorldView({el : "body"});
+    }
   },
 
   works : function() {
-
+    if(!this.view) {
+      this.view = new TheWorldView({el : "body"});
+    }
   },
 
   hello : function() {
-
+    if(!this.view) {
+      this.view = new TheWorldView({el : "body"});
+    }
   }
 });
