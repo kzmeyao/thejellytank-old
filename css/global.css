@@ -72,6 +72,7 @@ header {
 .overlay nav ul li:after {
   margin-left: 5px;
   content: '<';
+  display: inline-block;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform: translateX(5px);
@@ -80,6 +81,7 @@ header {
 }
 .overlay nav ul li::before {
   margin-right: 5px;
+  display: inline-block;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform: translateX(-5px);

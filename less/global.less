@@ -37,15 +37,15 @@ header {
   background-color: rgba(92, 177, 172, .85);
   z-index:9999;
 
-  @nav-height: 2em;
+  @nav-length: 2em;
   nav {
     color: #ffffff;
-    height: @nav-height;
+    height: @nav-length;
     padding-top: 1em;
 
     .logo {
       float: left;
-      width: @nav-height;
+      width: @nav-length;
       height: 100%;
       background-color: #4fc0b7;
       text-align: center;
@@ -66,7 +66,7 @@ header {
     }
 
     ul {
-      line-height: @nav-height;
+      line-height: @nav-length;
       float: right;
       height: 100%;
       li {
@@ -78,6 +78,7 @@ header {
         &:after {
           margin-left: 5px;
           content: '<';
+          display: inline-block;
           -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
           -webkit-transform: translateX(5px);
@@ -86,6 +87,7 @@ header {
         }
         &::before {
           margin-right: 5px;
+          display: inline-block;
           -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
           -webkit-transform: translateX(-5px);
