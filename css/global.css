@@ -15,6 +15,7 @@ li {
   margin: auto;
   padding: 0em 2em;
   height: 100%;
+  visibility: hidden;
 }
 .backgroundsize header {
   background: url(../images/splash.jpg) no-repeat center center fixed;
@@ -44,9 +45,9 @@ header {
   height: 100%;
   background-color: #4fc0b7;
   text-align: center;
+  cursor: pointer;
 }
 .overlay nav .logo #jelly {
-  visibility: hidden;
   display: inline-block;
 }
 .overlay nav .logo:before {
@@ -64,8 +65,43 @@ header {
 .overlay nav ul li {
   margin-left: 8em;
   font-family: Raleway, sans-serif;
+  font-weight: 200;
   display: inline-block;
   cursor: pointer;
+}
+.overlay nav ul li:after {
+  margin-left: 5px;
+  content: '<';
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateX(5px);
+  -moz-transform: translateX(5px);
+  transform: translateX(5px);
+}
+.overlay nav ul li::before {
+  margin-right: 5px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateX(-5px);
+  -moz-transform: translateX(-5px);
+  transform: translateX(-5px);
+  content: '>';
+}
+.overlay nav ul li::after,
+.overlay nav ul li::before {
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.overlay nav ul li:hover::after,
+.overlay nav ul li:hover::before {
+  opacity: 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  transform: translateX(0px);
 }
 .overlay .the-world:before {
   content: '';
@@ -76,7 +112,7 @@ header {
   vertical-align: middle;
   color: #ffffff;
   text-align: right;
-  margin-top: 5em;
+  margin-top: 6em;
 }
 .overlay .welcome h1 {
   font-family: Lato, sans-serif;
@@ -84,19 +120,26 @@ header {
 }
 .overlay .welcome h2 {
   font-family: Raleway, sans-serif;
-  font-weight: normal;
+  font-weight: 200;
   margin-top: -0.5em;
 }
 .overlay .welcome button {
-  margin-top: 1em;
   font-family: Lato, sans-serif;
   color: #ffffff;
-  background: none;
   border-radius: 4px;
-  border: #ffffff solid 1px;
+  border-width: 0px 2px 2px 0px;
+  border-color: rgba(62, 151, 143, 0.8);
+  border-style: solid;
   padding: 1em 1.5em;
   font-weight: 300;
   outline: none;
+  background-color: rgba(79, 192, 183, 0.6);
+}
+.overlay .welcome button:active {
+  border: none;
+}
+.overlay .welcome button:hover {
+  background-color: rgba(86, 210, 200, 0.6);
 }
 @media only screen and (max-width: 800px) {
   .ocean {
