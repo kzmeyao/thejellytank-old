@@ -27,7 +27,7 @@ ul, li {
 }
 
 header {
-  border-top: solid 5px #ffffff;
+  border-top: solid 3px #ffffff;
   width: 100%;
   height: 60%;
 }
@@ -37,7 +37,7 @@ header {
   background-color: rgba(92, 177, 172, .85);
   z-index:9999;
 
-  @nav-height: 3em;
+  @nav-height: 2em;
   nav {
     color: #ffffff;
     height: @nav-height;
@@ -48,17 +48,19 @@ header {
       width: @nav-height;
       height: 100%;
       background-color: #4fc0b7;
+      text-align: center;
 
       #jelly {
         visibility: hidden;
-        display: block;
-        margin: auto;
+        display: inline-block;
       }
 
       &:before {
         content: '';
         display: inline-block;
         vertical-align: middle;
+        height: 100%;
+        margin-right: -.25em;
       }
     }
 
