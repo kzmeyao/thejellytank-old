@@ -15,7 +15,6 @@ li {
   margin: auto;
   padding: 0em 2em;
   height: 100%;
-  visibility: hidden;
 }
 .backgroundsize header {
   background: url(../images/splash.jpg) no-repeat center center fixed;
@@ -48,6 +47,7 @@ header {
   cursor: pointer;
 }
 .overlay nav .logo #jelly {
+  visibility: hidden;
   display: inline-block;
 }
 .overlay nav .logo:before {

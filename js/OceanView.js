@@ -11,7 +11,10 @@ var OceanView = Backbone.View.extend({
   },
 
   render : function() {
-    TweenLite.to($("#jelly"), 0, {scale : 2.5});
+    var $jelly = $("#jelly"),
+      tl = new TimelineLite();
+    tl.to($jelly, 1, {scale : 2.5})
+      .to($jelly, 1, {autoAlpha: 1});
   },
 
   goHome : function() {
