@@ -154,7 +154,8 @@ header nav ul li:hover::before {
   margin-top: 1em;
 }
 .overlay .welcome button:active {
-  border: none;
+  border-width: 2px 0px 0px 0px;
+  border-color: rgba(0, 0, 0, 0.1);
 }
 .overlay .welcome button:hover {
   background-color: rgba(128, 210, 202, 0.6);
