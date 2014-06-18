@@ -13,9 +13,9 @@ ul, li {
 
 .the-world {
   max-width: 1000px;
-  margin: auto;
-  padding: 0em 2em;
   height: 100%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .backgroundsize header {
@@ -29,18 +29,24 @@ header {
   border-top: solid 3px #ffffff;
   width: 100%;
   height: 70%;
-}
-
-.overlay {
-  height: 100%;
-  background-color: rgba(92, 170, 180, .9);
-  z-index:9999;
 
   @nav-length: 2em;
   nav {
     color: #ffffff;
     height: @nav-length;
     padding-top: 1em;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    max-width: 1000px;
+
+    .match {
+      width: 90%;
+      height: 100%;
+      margin: 0 auto;
+    }
 
     .logo {
       float: left;
@@ -74,8 +80,8 @@ header {
         font-weight: 200;
         display: inline-block;
         cursor: pointer;
+        position: relative;
         &:after {
-          margin-left: 5px;
           content: '<';
           display: inline-block;
           -webkit-backface-visibility: hidden;
@@ -83,19 +89,21 @@ header {
           -webkit-transform: translateX(5px);
           -moz-transform: translateX(5px);
           transform: translateX(5px);
+          left: -15px;
         }
         &::before {
-          margin-right: 5px;
           display: inline-block;
           -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
           -webkit-transform: translateX(-5px);
           -moz-transform: translateX(-5px);
           transform: translateX(-5px);
+          left: -15px;
           content: '>';
         }
         &::after, &::before {
           opacity: 0;
+          position: absolute;
           -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
           -moz-transition: -moz-transform 0.3s, opacity 0.3s;
           transition: transform 0.3s, opacity 0.3s;
@@ -111,18 +119,26 @@ header {
       }
     }
   }
+}
+
+.overlay {
+  height: 100%;
+  background-color: rgba(92, 170, 180, .9);
+  z-index:9999;
 
   .the-world:before {
     content: '';
     display: inline-block;
     vertical-align: middle;
+    height: 100%;
   }
 
   .welcome {
     vertical-align: middle;
     color: #ffffff;
     text-align: right;
-    margin-top: 6.5em;
+    display: inline-block;
+    width: 90%;
     h1 {
       font-size: 2.2em;
       font-family: Lato, sans-serif;
@@ -163,7 +179,7 @@ header {
     nav {
       ul {
         li {
-          margin-left: 0em !important;
+          margin-left: 3em !important;
         }
       }
     }

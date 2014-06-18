@@ -12,9 +12,9 @@ li {
 }
 .the-world {
   max-width: 1000px;
-  margin: auto;
-  padding: 0em 2em;
   height: 100%;
+  text-align: center;
+  margin: 0 auto;
 }
 .backgroundsize header {
   -webkit-background-size: cover;
@@ -27,17 +27,23 @@ header {
   width: 100%;
   height: 70%;
 }
-.overlay {
-  height: 100%;
-  background-color: rgba(92, 170, 180, 0.9);
-  z-index: 9999;
-}
-.overlay nav {
+header nav {
   color: #ffffff;
   height: 2em;
   padding-top: 1em;
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  max-width: 1000px;
 }
-.overlay nav .logo {
+header nav .match {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+header nav .logo {
   float: left;
   width: 2em;
   height: 100%;
@@ -45,31 +51,31 @@ header {
   text-align: center;
   cursor: pointer;
 }
-.overlay nav .logo #jelly {
+header nav .logo #jelly {
   visibility: hidden;
   display: inline-block;
 }
-.overlay nav .logo:before {
+header nav .logo:before {
   content: '';
   display: inline-block;
   vertical-align: middle;
   height: 100%;
   margin-right: -0.25em;
 }
-.overlay nav ul {
+header nav ul {
   line-height: 2em;
   float: right;
   height: 100%;
 }
-.overlay nav ul li {
+header nav ul li {
   margin-left: 8em;
   font-family: Raleway, sans-serif;
   font-weight: 200;
   display: inline-block;
   cursor: pointer;
+  position: relative;
 }
-.overlay nav ul li:after {
-  margin-left: 5px;
+header nav ul li:after {
   content: '<';
   display: inline-block;
   -webkit-backface-visibility: hidden;
@@ -77,26 +83,28 @@ header {
   -webkit-transform: translateX(5px);
   -moz-transform: translateX(5px);
   transform: translateX(5px);
+  left: -15px;
 }
-.overlay nav ul li::before {
-  margin-right: 5px;
+header nav ul li::before {
   display: inline-block;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform: translateX(-5px);
   -moz-transform: translateX(-5px);
   transform: translateX(-5px);
+  left: -15px;
   content: '>';
 }
-.overlay nav ul li::after,
-.overlay nav ul li::before {
+header nav ul li::after,
+header nav ul li::before {
   opacity: 0;
+  position: absolute;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
   -moz-transition: -moz-transform 0.3s, opacity 0.3s;
   transition: transform 0.3s, opacity 0.3s;
 }
-.overlay nav ul li:hover::after,
-.overlay nav ul li:hover::before {
+header nav ul li:hover::after,
+header nav ul li:hover::before {
   opacity: 1;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -104,16 +112,23 @@ header {
   -moz-transform: translateX(0px);
   transform: translateX(0px);
 }
+.overlay {
+  height: 100%;
+  background-color: rgba(92, 170, 180, 0.9);
+  z-index: 9999;
+}
 .overlay .the-world:before {
   content: '';
   display: inline-block;
   vertical-align: middle;
+  height: 100%;
 }
 .overlay .welcome {
   vertical-align: middle;
   color: #ffffff;
   text-align: right;
-  margin-top: 6.5em;
+  display: inline-block;
+  width: 90%;
 }
 .overlay .welcome h1 {
   font-size: 2.2em;
@@ -149,6 +164,6 @@ header {
     height: 100%;
   }
   header nav ul li {
-    margin-left: 0em !important;
+    margin-left: 3em !important;
   }
 }
