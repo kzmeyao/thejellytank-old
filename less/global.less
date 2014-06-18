@@ -29,12 +29,12 @@ ul, li {
 header {
   border-top: solid 3px #ffffff;
   width: 100%;
-  height: 60%;
+  height: 70%;
 }
 
 .overlay {
   height: 100%;
-  background-color: rgba(92, 177, 172, .85);
+  background-color: rgba(92, 170, 170, .85);
   z-index:9999;
 
   @nav-length: 2em;
@@ -123,8 +123,9 @@ header {
     vertical-align: middle;
     color: #ffffff;
     text-align: right;
-    margin-top: 6em;
+    margin-top: 6.5em;
     h1 {
+      font-size: 2.2em;
       font-family: Lato, sans-serif;
       font-weight: normal;
     };
@@ -144,6 +145,7 @@ header {
       font-weight: 300;
       outline:none;
       background-color: rgba(79, 192, 183, .6);
+      margin-top: 1em;
 
       &:active {
         border: none;
@@ -157,7 +159,14 @@ header {
 }
 
 @media only screen and (max-width: 800px) {
-  .ocean {
-    height: 40%;
+  header {
+    height: 100%;
+    nav {
+      ul {
+        li {
+          margin-left: 0em !important;
+        }
+      }
+    }
   }
 }
