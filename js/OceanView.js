@@ -11,10 +11,15 @@ var OceanView = Backbone.View.extend({
   },
 
   render : function() {
-    var $jelly = $("#jelly"),
-      tl = new TimelineLite();
-    tl.to($jelly, 1, {scale : 2.5})
-      .to($jelly, 1, {autoAlpha: 1});
+    var image = new Image();
+    image.src = "../images/splash.jpg";
+    image.onload = function() {
+      $(".backgroundsize header").css('background', "url(" + image.src + ") no-repeat center center fixed");
+      var $jelly = $("#jelly"),
+        tl = new TimelineLite();
+      tl.to($jelly, 1, {scale : 2.5})
+        .to($jelly, 1, {autoAlpha: 1});
+    };
   },
 
   goHome : function() {

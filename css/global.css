@@ -17,7 +17,6 @@ li {
   height: 100%;
 }
 .backgroundsize header {
-  background: url(../images/splash.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -30,7 +29,7 @@ header {
 }
 .overlay {
   height: 100%;
-  background-color: rgba(92, 170, 170, 0.85);
+  background-color: rgba(92, 170, 180, 0.9);
   z-index: 9999;
 }
 .overlay nav {
@@ -136,14 +135,14 @@ header {
   padding: 1em 1.5em;
   font-weight: 300;
   outline: none;
-  background-color: rgba(79, 192, 183, 0.6);
+  background-color: rgba(86, 210, 200, 0.6);
   margin-top: 1em;
 }
 .overlay .welcome button:active {
   border: none;
 }
 .overlay .welcome button:hover {
-  background-color: rgba(86, 210, 200, 0.6);
+  background-color: rgba(128, 210, 202, 0.6);
 }
 @media only screen and (max-width: 800px) {
   header {
