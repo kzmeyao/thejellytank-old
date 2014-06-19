@@ -28,13 +28,13 @@ ul, li {
 header {
   border-top: solid 3px #ffffff;
   width: 100%;
-  height: 70%;
+  height: 75%;
 
   @nav-length: 2em;
   nav {
     color: #ffffff;
     height: @nav-length;
-    padding-top: 1em;
+    padding-top: 2em;
     position: absolute;
     width: 100%;
     margin: 0 auto;
@@ -123,7 +123,15 @@ header {
 
 .overlay {
   height: 100%;
-  background-color: rgba(82, 165, 165, 0.9);
+  background: -moz-linear-gradient(-45deg,  rgba(86,158,160,0.9) 0%, rgba(53,165,105,0.8) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(86,158,160,0.9)), color-stop(100%,rgba(53,165,105,0.8))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg,  rgba(86,158,160,0.9) 0%,rgba(53,165,105,0.8) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg,  rgba(86,158,160,0.9) 0%,rgba(53,165,105,0.8) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg,  rgba(86,158,160,0.9) 0%,rgba(53,165,105,0.8) 100%); /* IE10+ */
+  background: linear-gradient(135deg,  rgba(86,158,160,0.9) 0%,rgba(53,165,105,0.8) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6569ea0', endColorstr='#cc35a569',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
   z-index:9999;
 
   .the-world:before {
@@ -140,6 +148,7 @@ header {
     display: inline-block;
     width: 90%;
     h1 {
+      margin-top: -.5em;
       font-size: 2.2em;
       font-family: Lato, sans-serif;
       font-weight: normal;
@@ -153,22 +162,28 @@ header {
       font-family: Lato, sans-serif;
       color: #ffffff;
       border-radius: 4px;
-      border-width: 0px 2px 2px 0px;
-      border-color: rgba(62, 151, 143, .8);
+      border-width: 1px 1px 1px 1px;
+      border-color: rgba(255, 255, 255, .8);
       border-style: solid;
       padding: 1em 1.5em;
       font-weight: 300;
       outline:none;
-      background-color: rgba(86, 210, 200, .6);
+      background: none;
       margin-top: 1em;
-
-      &:active {
-        border-width: 2px 0px 0px 0px;
-        border-color: rgba(0, 0, 0, .1);
-      }
+      -webkit-transition: background-color 250ms linear;
+      -moz-transition: background-color 250ms linear;
+      -o-transition: background-color 250ms linear;
+      -ms-transition: background-color 250ms linear;
+      transition: background-color 250ms linear;
 
       &:hover {
-        background-color: rgba(128, 210, 202, 0.60);
+        border-color: rgba(255, 255, 255, 0.25);
+        background-color: rgba(255, 255, 255, 0.25);
+        -webkit-transition: background-color 250ms linear;
+        -moz-transition: background-color 250ms linear;
+        -o-transition: background-color 250ms linear;
+        -ms-transition: background-color 250ms linear;
+        transition: background-color 250ms linear;
       }
     }
   }
