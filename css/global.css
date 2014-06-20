@@ -31,10 +31,15 @@ header {
   -moz-transition: height .3s linear;
   -webkit-transition: height .3s linear;
 }
+header.fixed {
+  height: 5em;
+  position: fixed;
+  top: 0;
+}
 header nav {
   color: #ffffff;
   height: 2em;
-  padding-top: 1.5em;
+  padding: 1.5em 0em;
   position: absolute;
   width: 100%;
   margin: 0 auto;
@@ -116,7 +121,7 @@ header nav ul li:hover::before {
   -moz-transform: translateX(0px);
   transform: translateX(0px);
 }
-.overlay {
+header .overlay {
   height: 100%;
   background: -moz-linear-gradient(-45deg, rgba(86, 158, 160, 0.9) 0%, rgba(53, 165, 105, 0.9) 100%);
   /* FF3.6+ */
@@ -134,30 +139,30 @@ header nav ul li:hover::before {
   /* IE6-9 fallback on horizontal gradient */
   z-index: 9999;
 }
-.overlay .the-world:before {
+header .overlay .the-world:before {
   content: '';
   display: inline-block;
   vertical-align: middle;
   height: 100%;
 }
-.overlay .welcome {
+header .overlay .welcome {
   vertical-align: middle;
   color: #ffffff;
   text-align: right;
   display: inline-block;
   width: 90%;
 }
-.overlay .welcome h1 {
+header .overlay .welcome h1 {
   font-size: 2.2em;
   font-family: Lato, sans-serif;
   font-weight: normal;
 }
-.overlay .welcome h2 {
+header .overlay .welcome h2 {
   font-family: Raleway, sans-serif;
   font-weight: 200;
   margin-top: -0.5em;
 }
-.overlay .welcome button {
+header .overlay .welcome button {
   font-family: Lato, sans-serif;
   color: #ffffff;
   border-radius: 4px;
@@ -175,7 +180,7 @@ header nav ul li:hover::before {
   -ms-transition: background-color 250ms linear;
   transition: background-color 250ms linear;
 }
-.overlay .welcome button:hover {
+header .overlay .welcome button:hover {
   border-color: rgba(255, 255, 255, 0.25);
   background-color: rgba(255, 255, 255, 0.25);
   -webkit-transition: background-color 250ms linear;
@@ -185,6 +190,15 @@ header nav ul li:hover::before {
   transition: background-color 250ms linear;
   -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+.fixed .welcome {
+  display: none !important;
+}
+.beach .works-view {
+  height: 100em;
+}
+.beach .hello-view {
+  height: 70em;
 }
 @media only screen and (max-width: 800px) {
   header {
