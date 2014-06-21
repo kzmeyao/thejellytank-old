@@ -25,33 +25,31 @@ ul, li {
   background-size: cover;
 }
 
+@headerHeight: @navLength + 2*@navPadding;
+@navLength: 2em;
+@navPadding: 1.5em;
 header {
   border-top: solid 3px #ffffff;
   width: 100%;
   height: 100%;
-  transition: height .3s ease-in;
-  -o-transition: height .3s ease-in;
-  -moz-transition: height .3s ease-in;
-  -webkit-transition: height .3s ease-in;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
 
   &.fixed {
-    height: @nav-length + 2*@nav-padding;
     position: fixed;
     top: 0;
   }
 
-  @nav-length: 2em;
-  @nav-padding: 1.5em;
   nav {
     color: #ffffff;
-    height: @nav-length;
-    padding: @nav-padding 0em;
-    position: absolute;
+    height: @navLength;
+    padding: @navPadding 0em;
+    position: fixed;
     width: 100%;
     margin: 0 auto;
     left: 0;
     right: 0;
-    max-width: 1000px;
 
     .match {
       width: 90%;
@@ -61,7 +59,7 @@ header {
 
     .logo {
       float: left;
-      width: @nav-length;
+      width: @navLength;
       height: 100%;
       background-color: rgba(255,255,255,.2);
       text-align: center;
@@ -82,7 +80,7 @@ header {
     }
 
     ul {
-      line-height: @nav-length;
+      line-height: @navLength;
       float: right;
       height: 100%;
       li {
@@ -205,11 +203,14 @@ header {
 }
 
 .beach {
+  section {
+    padding-top: @headerHeight + 2em;
+  }
   .works-view {
-    height: 100em;
+    display: none;
   }
   .hello-view {
-    height: 70em;
+    display: none;
   }
 }
 
