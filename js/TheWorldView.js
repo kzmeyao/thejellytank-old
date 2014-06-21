@@ -5,6 +5,7 @@ var TheWorldView = Backbone.View.extend({
 
   initialize : function() {
     this.ocean = new OceanView({el : "header"});
+
     var that = this;
     that.persistHeader = false;
     $(window).scroll(function() {
