@@ -4,6 +4,7 @@ var OceanView = Backbone.View.extend({
     "click .nav-home" : "goHome",
     "click .nav-works" : "goWork",
     "click .nav-hello" : "sayHello",
+    "click .logo" : "goHome",
     "mouseover .logo"  : "logoHover",
     "click .unleash" : "unleash"
   },
@@ -36,7 +37,7 @@ var OceanView = Backbone.View.extend({
   },
 
   goHome : function() {
-    console.log("You're home");
+
   },
 
   unleash: function() {
@@ -44,11 +45,7 @@ var OceanView = Backbone.View.extend({
   },
 
   goWork : function() {
-    var $header = $("header");
-    $header.addClass("fixed");
-    TweenLite.to($header, 0.7,
-      {height: $("nav").outerHeight(),
-        onComplete: function(){$(window).disablescroll("undo")}});
+
   },
 
   sayHello : function() {

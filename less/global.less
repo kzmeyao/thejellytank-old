@@ -16,6 +16,7 @@ ul, li {
   height: 100%;
   text-align: center;
   margin: 0 auto;
+  position: relative;
 }
 
 .backgroundsize header {
@@ -25,9 +26,8 @@ ul, li {
   background-size: cover;
 }
 
-@headerHeight: @navLength + 2*@navPadding;
+@headerHeight: 5em;
 @navLength: 2em;
-@navPadding: 1.5em;
 header {
   border-top: solid 3px #ffffff;
   width: 100%;
@@ -43,18 +43,25 @@ header {
 
   nav {
     color: #ffffff;
-    height: @navLength;
-    padding: @navPadding 0em;
+    height: @headerHeight;
     position: fixed;
     width: 100%;
     margin: 0 auto;
     left: 0;
     right: 0;
+    z-index: 1;
+
+    .overlay {
+      opacity: 0;
+      height: @headerHeight;
+    }
 
     .match {
       width: 90%;
-      height: 100%;
+      height: @navLength;
       margin: 0 auto;
+      display: inline-block;
+      vertical-align: middle;
     }
 
     .logo {
@@ -131,6 +138,8 @@ header {
 
   .overlay {
     height: 100%;
+    width: 100%;
+    position: absolute;
     background: -moz-linear-gradient(-45deg,  rgba(86,158,160,0.9) 0%, rgba(53,165,105,0.9) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(86,158,160,0.9)), color-stop(100%,rgba(53,165,105,0.9))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg,  rgba(86,158,160,0.9) 0%,rgba(53,165,105,0.9) 100%); /* Chrome10+,Safari5.1+ */
@@ -138,61 +147,59 @@ header {
     background: -ms-linear-gradient(-45deg,  rgba(86,158,160,0.9) 0%,rgba(53,165,105,0.9) 100%); /* IE10+ */
     background: linear-gradient(135deg,  rgba(86,158,160,0.9) 0%,rgba(53,165,105,0.9) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6569ea0', endColorstr='#e635a569',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  }
 
-    z-index:9999;
+  .the-world:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
 
-    .the-world:before {
-      content: '';
-      display: inline-block;
-      vertical-align: middle;
-      height: 100%;
-    }
-
-    .welcome {
-      vertical-align: middle;
+  .welcome {
+    vertical-align: middle;
+    color: #ffffff;
+    text-align: right;
+    display: inline-block;
+    width: 90%;
+    h1 {
+      font-size: 2.2em;
+      font-family: Lato, sans-serif;
+      font-weight: normal;
+    };
+    h2 {
+      font-family: Raleway, sans-serif;
+      font-weight: 200;
+      margin-top: -.5em;
+    };
+    button {
+      font-family: Lato, sans-serif;
       color: #ffffff;
-      text-align: right;
-      display: inline-block;
-      width: 90%;
-      h1 {
-        font-size: 2.2em;
-        font-family: Lato, sans-serif;
-        font-weight: normal;
-      };
-      h2 {
-        font-family: Raleway, sans-serif;
-        font-weight: 200;
-        margin-top: -.5em;
-      };
-      button {
-        font-family: Lato, sans-serif;
-        color: #ffffff;
-        border-radius: 4px;
-        border-width: 1px 1px 1px 1px;
-        border-color: rgba(255, 255, 255, .8);
-        border-style: solid;
-        padding: 1em 1.5em;
-        font-weight: 300;
-        outline:none;
-        background: none;
-        margin-top: 1em;
+      border-radius: 4px;
+      border-width: 1px 1px 1px 1px;
+      border-color: rgba(255, 255, 255, .8);
+      border-style: solid;
+      padding: 1em 1.5em;
+      font-weight: 300;
+      outline:none;
+      background: none;
+      margin-top: 1em;
+      -webkit-transition: background-color 250ms linear;
+      -moz-transition: background-color 250ms linear;
+      -o-transition: background-color 250ms linear;
+      -ms-transition: background-color 250ms linear;
+      transition: background-color 250ms linear;
+
+      &:hover {
+        border-color: rgba(255, 255, 255, 0.25);
+        background-color: rgba(255, 255, 255, 0.25);
         -webkit-transition: background-color 250ms linear;
         -moz-transition: background-color 250ms linear;
         -o-transition: background-color 250ms linear;
         -ms-transition: background-color 250ms linear;
         transition: background-color 250ms linear;
-
-        &:hover {
-          border-color: rgba(255, 255, 255, 0.25);
-          background-color: rgba(255, 255, 255, 0.25);
-          -webkit-transition: background-color 250ms linear;
-          -moz-transition: background-color 250ms linear;
-          -o-transition: background-color 250ms linear;
-          -ms-transition: background-color 250ms linear;
-          transition: background-color 250ms linear;
-          -webkit-box-shadow: 0 0 2px 0 rgba(0,0,0,.2);
-          box-shadow: 0 0 2px 0 rgba(0,0,0,.2);
-        }
+        -webkit-box-shadow: 0 0 2px 0 rgba(0,0,0,.2);
+        box-shadow: 0 0 2px 0 rgba(0,0,0,.2);
       }
     }
   }
@@ -203,6 +210,7 @@ header {
 }
 
 .beach {
+  height: 100%;
   section {
     padding-top: @headerHeight + 2em;
   }

@@ -7,43 +7,26 @@ var TheWorldView = Backbone.View.extend({
     this.ocean = new OceanView({el : "header"});
 
     var that = this;
-    that.persistHeader = false;
-//    var scrollHandler = function() {
-//      that.didScroll = true;
-//    };
-//
-//    $(window).scroll(scrollHandler);
+    var scrollHandler = function() {
+      that.didScroll = true;
+    };
 
-//    this.scrollInterval = setInterval(function() {
-//      if (that.didScroll) {
-//        that.didScroll = false;
-//
-//        var $header = $("header");
-//        var scrollTop = $(window).scrollTop();
-//        if (!that.persistHeader && scrollTop > 0) {
-//          $(window).off("scroll", scrollHandler);
-//          $header.addClass("fixed");
-//          TweenLite.to(
-//            $header,
-//            0.4,
-//            {height: $("nav").outerHeight(),
-//             onComplete: function(){
-//               $(window).scroll(scrollHandler);
-//               that.persistHeader = true;
-//             }
-//            });
-//        } else if(that.persistHeader && that.scrollTop < 1) {
-//          that.persistHeader = false;
-//          TweenLite.to(
-//            $header,
-//            0.4,
-//            {height: "innerHeight" in window
-//              ? window.innerHeight
-//              : document.documentElement.offsetHeight,
-//             onComplete: function(){$("header").removeClass("fixed");}});
-//        }
-//      }
-//    }, 250);
+    $(window).scroll(scrollHandler);
+
+    this.scrollInterval = setInterval(function() {
+      if (that.didScroll) {
+        that.didScroll = false;
+
+        var $navOverlay = $("nav .overlay");
+        var scrollTop = $(window).scrollTop();
+        var headerHeight = $("header").outerHeight();
+        if (scrollTop < headerHeight) {
+          TweenLite.to($navOverlay, 0.5, {autoAlpha: 0});
+        } else {
+          TweenLite.to($navOverlay, 0.5, {autoAlpha: 1});
+        }
+      }
+    }, 250);
 
     this.worksView = new WorksView({el : ".works-page"});
     this.helloView = new HelloView({el : ".works-page"});
