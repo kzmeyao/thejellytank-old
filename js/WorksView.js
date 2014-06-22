@@ -5,10 +5,11 @@ var WorksView = Backbone.View.extend({
 
   initialize : function() {
     this.template = Handlebars.compile($("#works-view-template").html());
+    this.collection = new Works();
   },
 
   render : function() {
-    this.$el.append(this.template());
+    this.collection.fetch(this.$el, this.template);
   },
 
   remove : function() {

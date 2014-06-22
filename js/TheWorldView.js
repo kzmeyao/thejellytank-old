@@ -28,12 +28,13 @@ var TheWorldView = Backbone.View.extend({
       }
     }, 250);
 
-    this.worksView = new WorksView({el : ".works-page"});
-    this.helloView = new HelloView({el : ".works-page"});
+    this.worksView = new WorksView({el : ".works-view"});
+    this.helloView = new HelloView({el : ".hello-view"});
     this.render();
   },
 
   render : function() {
     this.ocean.render();
+    this.worksView.render();
   }
 });

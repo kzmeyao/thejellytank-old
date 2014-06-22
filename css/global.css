@@ -207,12 +207,6 @@ header .welcome button:hover {
 .beach section {
   padding-top: 7em;
 }
-.beach .works-view {
-  display: none;
-}
-.beach .hello-view {
-  display: none;
-}
 @media only screen and (max-width: 800px) {
   header nav {
     font-weight: 200;
