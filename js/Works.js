@@ -8,10 +8,20 @@ var Works = Backbone.Collection.extend({
   },
 
   fetch: function($el, template) {
-    _500px.api('/photos', {feature: "user", username : "kzmeyao"}, function (response) {
+    var that = this;
+    _500px.api('/photos', {feature: "user", username : "kzmeyao", image_size : "3", sort : "taken_at"}, function (response) {
       if (response.success) {
-        console.log('There are ' + response.data.photos.length + ' photos.');
-        $el.append(template());
+        that.models = that.models.concat(response.data.photos);
+        console.log(that.models);
+        $el.append(template({works : that.models}));
+        var $container = $(".works-view ul");
+        $container.imagesLoaded( function() {
+          TweenLite.to($container, 0.7, {y : "-5"});
+          TweenLite.to($container, 0.7, {autoAlpha : "1"});
+          $container.masonry({
+            isFitWidth: true
+          });
+        });
       } else {
         console.log('Unable to complete request: ' + response.status + ' - ' + response.error_message);
       }
