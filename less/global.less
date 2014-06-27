@@ -12,7 +12,7 @@ ul, li {
 }
 
 .the-world {
-  max-width: 716px;
+  max-width: 711px;
   height: 100%;
   text-align: center;
   margin: 0 auto;
@@ -29,7 +29,7 @@ ul, li {
 
 @navHeight: 5em;
 @navLength: 2em;
-@headerHeight: 60%;
+@headerHeight: 70%;
 header {
   width: 100%;
   height: @headerHeight;
@@ -108,6 +108,9 @@ header {
         display: inline-block;
         cursor: pointer;
         position: relative;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-text-stroke: 0.3px;
         &:after {
           content: '<';
           display: inline-block;
@@ -118,7 +121,7 @@ header {
           transform: translateX(5px);
           left: -15px;
         }
-        &::before {
+        &:before {
           display: inline-block;
           -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
@@ -128,14 +131,14 @@ header {
           left: -15px;
           content: '>';
         }
-        &::after, &::before {
+        &:after, &:before {
           opacity: 0;
           position: absolute;
           -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
           -moz-transition: -moz-transform 0.3s, opacity 0.3s;
           transition: transform 0.3s, opacity 0.3s;
         }
-        &:hover::after, &:hover::before {
+        &:hover:after, &:hover:before {
           opacity: 1;
           -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
@@ -246,6 +249,7 @@ header {
           left: 0;
           line-height: @imgWidth;
           font-family: Raleway, sans-serif;
+          font-weight: 200;
           font-size: 1.4em;
 
           &:hover {
