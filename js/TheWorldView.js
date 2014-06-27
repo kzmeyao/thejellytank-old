@@ -20,10 +20,12 @@ var TheWorldView = Backbone.View.extend({
         var $navOverlay = $("nav .overlay");
         var scrollTop = $(window).scrollTop();
         var headerHeight = $("header").outerHeight();
-        if (scrollTop < headerHeight) {
-          TweenLite.to($navOverlay, 0.5, {autoAlpha: 0});
-        } else {
-          TweenLite.to($navOverlay, 0.5, {autoAlpha: 1});
+        if (that.persist && scrollTop < headerHeight) {
+          that.persist = false;
+          TweenLite.to($navOverlay, 0.3, {height: "8%"});
+        } else if (!that.persist && scrollTop > headerHeight) {
+          that.persist = true;
+          TweenLite.to($navOverlay, 0.3, {height: "100%"});
         }
       }
     }, 250);

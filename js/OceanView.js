@@ -1,7 +1,6 @@
 var OceanView = Backbone.View.extend({
 
   events: {
-    "click .nav-home" : "goHome",
     "click .nav-works" : "goWork",
     "click .nav-hello" : "sayHello",
     "click .logo" : "goHome",
@@ -17,7 +16,7 @@ var OceanView = Backbone.View.extend({
     var image = new Image();
     image.src = "../images/splash.jpg";
     image.onload = function() {
-      $(".backgroundsize header").css('background', "url(" + image.src + ") no-repeat center center scroll");
+      $(".backgroundsize header").css('background', "url(" + image.src + ") no-repeat center 75% scroll");
       var $jelly = $("#jelly"),
           tl = new TimelineLite();
       tl.to($jelly, 1, {scale : 2.5})

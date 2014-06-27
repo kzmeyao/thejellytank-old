@@ -12,7 +12,6 @@ var Works = Backbone.Collection.extend({
     _500px.api('/photos', {feature: "user", username : "kzmeyao", image_size : "3", sort : "taken_at"}, function (response) {
       if (response.success) {
         that.models = that.models.concat(response.data.photos);
-        console.log(that.models);
         $el.append(template({works : that.models}));
         var $container = $(".works-view ul");
         $container.imagesLoaded( function() {
