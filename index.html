@@ -64,7 +64,7 @@
 <script id="works-view-template" type="text/x-handlebars-template">
     <ul>
         {{#each works}}
-        <li><div class="overlay"></div><img src="{{image_url}}" /></li>
+        <li><div class="overlay">{{created_at}}</div><img src="{{image_url}}" /></li>
         {{/each}}
     </ul>
 </script>

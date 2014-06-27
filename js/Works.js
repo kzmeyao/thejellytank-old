@@ -11,7 +11,12 @@ var Works = Backbone.Collection.extend({
     var that = this;
     _500px.api('/photos', {feature: "user", username : "kzmeyao", image_size : "3", sort : "taken_at"}, function (response) {
       if (response.success) {
-        that.models = that.models.concat(response.data.photos);
+        var photos = response.data.photos;
+        $.each(photos, function(index, photo) {
+          photo.created_at = photo.created_at.substring(0,10).replace(/-/g, ".");
+          that.models.push(photo);
+        });
+        console.log(that.models);
         $el.append(template({works : that.models}));
         var $container = $(".works-view ul");
         $container.imagesLoaded( function() {

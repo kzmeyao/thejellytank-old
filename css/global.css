@@ -221,26 +221,33 @@ header .welcome button:hover {
 }
 .beach .works-view ul li {
   display: inline-block;
-  padding: .1em;
+  border: 1px solid #ffffff;
+  cursor: pointer;
 }
 .beach .works-view ul li .overlay {
   position: absolute;
   height: 100%;
   width: 100%;
+  color: rgba(255, 255, 255, 0);
   background: rgba(255, 255, 255, 0);
-  -webkit-transition: background 0.3s;
-  -moz-transition: background 0.3s;
-  transition: background 0.3s;
-  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  top: 0;
+  left: 0;
+  line-height: 235px;
+  font-family: Raleway, sans-serif;
+  font-size: 1.4em;
 }
 .beach .works-view ul li .overlay:hover {
-  -webkit-transition: background 0.3s;
-  -moz-transition: background 0.3s;
-  transition: background 0.3s;
-  background: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  background: rgba(88, 173, 135, 0.85);
 }
 .beach .works-view ul li img {
-  width: 230px;
+  width: 235px;
 }
 @media only screen and (max-width: 800px) {
   header {
