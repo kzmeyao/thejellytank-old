@@ -41,7 +41,7 @@ var OceanView = Backbone.View.extend({
 
   unleash: function() {
     TweenLite.to($(".welcome button"), 1, {autoAlpha: 0, y: -10});
-    new Bloom("jelly-hidden", "header", "#ffffff", 900, 1000);
+    new Bloom("jelly-hidden", "header", "#ffffff", 1200, 1000);
   },
 
   goWork : function() {
