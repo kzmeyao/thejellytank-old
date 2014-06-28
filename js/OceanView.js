@@ -1,6 +1,8 @@
 var OceanView = Backbone.View.extend({
 
   events: {
+    "click .nav-works" : "goWork",
+    "click .nav-hello" : "sayHello",
     "click .logo" : "goHome",
     "mouseover .logo"  : "logoHover",
     "click button" : "unleash"
@@ -33,12 +35,32 @@ var OceanView = Backbone.View.extend({
     }
   },
 
-  goHome : function() {
-
-  },
-
   unleash: function() {
     TweenLite.to($(".welcome button"), 1, {autoAlpha: 0, y: -10});
     new Bloom("jelly-hidden", "header", "#ffffff", 1200, 1000);
+  },
+
+  goHome : function() {
+    if (Backbone.history.fragment === '') {
+      Backbone.history.loadUrl(Backbone.history.fragment);
+    } else {
+      App.navigate('', {'trigger': true});
+    }
+  },
+
+  goWork : function() {
+    if (Backbone.history.fragment === 'works') {
+      Backbone.history.loadUrl(Backbone.history.fragment);
+    } else {
+      App.navigate('works', {'trigger': true});
+    }
+  },
+
+  sayHello : function() {
+    if (Backbone.history.fragment === 'hello') {
+      Backbone.history.loadUrl(Backbone.history.fragment);
+    } else {
+      App.navigate('hello', {'trigger': true});
+    }
   }
 });

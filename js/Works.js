@@ -25,6 +25,9 @@ var Works = Backbone.Collection.extend({
           $container.masonry({
             isFitWidth: true
           });
+          if (Backbone.history.fragment === 'hello') {
+            App.view.sayHello();
+          }
         });
       } else {
         console.log('Unable to complete request: ' + response.status + ' - ' + response.error_message);
