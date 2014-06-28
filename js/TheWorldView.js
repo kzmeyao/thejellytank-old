@@ -38,5 +38,6 @@ var TheWorldView = Backbone.View.extend({
   render : function() {
     this.ocean.render();
     this.worksView.render();
+    this.helloView.render();
   }
 });

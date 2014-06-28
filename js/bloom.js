@@ -50,7 +50,6 @@ var Bloom = function(jellySvg, tank, color, frequency, carryingCapacity) {
 
     var tx = new TimelineMax({onComplete: function(){jelly.remove()}});
     // there's definitely a better way to do this
-//    tx.set(jelly, {force3D:"auto"});
     tx.to(jelly, 1, {autoAlpha: 0.999, scale : 2}, 0)
       .to(jelly, 1, {fill: color}, 1)
       .to(jelly, 3, {y : dist}, 1)
