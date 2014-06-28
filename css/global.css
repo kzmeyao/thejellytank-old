@@ -10,6 +10,12 @@ li {
 .cf {
   clear: both;
 }
+.jelly {
+  position: absolute;
+}
+#jelly-hidden {
+  display: none;
+}
 .the-world {
   max-width: 711px;
   height: 100%;
@@ -210,9 +216,6 @@ header .welcome button:hover {
 }
 .fixed .welcome {
   display: none !important;
-}
-.beach {
-  height: 100%;
 }
 .beach section {
   padding-top: 5em;
