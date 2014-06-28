@@ -8,6 +8,6 @@ var HelloView = Backbone.View.extend({
   },
 
   render : function() {
-    $(".hello-view").append(this.template());
+    this.$el.append(this.template());
   }
 });

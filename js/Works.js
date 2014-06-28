@@ -18,7 +18,7 @@ var Works = Backbone.Collection.extend({
         });
         console.log(that.models);
         $el.append(template({works : that.models}));
-        var $container = $(".works-view ul");
+        var $container = $el.find("ul");
         $container.imagesLoaded( function() {
           TweenLite.to($container, 0.7, {y : "-5"});
           TweenLite.to($container, 0.7, {autoAlpha : "1"});

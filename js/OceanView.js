@@ -1,8 +1,6 @@
 var OceanView = Backbone.View.extend({
 
   events: {
-    "click .nav-works" : "goWork",
-    "click .nav-hello" : "sayHello",
     "click .logo" : "goHome",
     "mouseover .logo"  : "logoHover",
     "click button" : "unleash"
@@ -42,13 +40,5 @@ var OceanView = Backbone.View.extend({
   unleash: function() {
     TweenLite.to($(".welcome button"), 1, {autoAlpha: 0, y: -10});
     new Bloom("jelly-hidden", "header", "#ffffff", 1200, 1000);
-  },
-
-  goWork : function() {
-
-  },
-
-  sayHello : function() {
-    console.log("Sup");
   }
 });

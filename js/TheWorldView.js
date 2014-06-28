@@ -30,8 +30,8 @@ var TheWorldView = Backbone.View.extend({
       }
     }, 250);
 
-    this.worksView = new WorksView({el : ".works-view"});
-    this.helloView = new HelloView({el : ".hello-view"});
+    this.worksView = new WorksView({el : "#works"});
+    this.helloView = new HelloView({el : "#hello"});
     this.render();
   },
 

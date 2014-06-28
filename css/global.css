@@ -162,6 +162,10 @@ header nav ul li {
   backface-visibility: hidden;
   -webkit-text-stroke: 0.3px;
 }
+header nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
 header nav ul li:after {
   content: '<';
   display: inline-block;
@@ -270,15 +274,15 @@ header .welcome button:hover {
   margin: 0 auto;
   list-style: none;
 }
-.beach .works-view ul {
+.beach #works ul {
   opacity: 0;
 }
-.beach .works-view ul li {
+.beach #works ul li {
   display: inline-block;
   border: 1px solid #ffffff;
   cursor: pointer;
 }
-.beach .works-view ul li .overlay {
+.beach #works ul li .overlay {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -294,40 +298,40 @@ header .welcome button:hover {
   font-weight: 200;
   font-size: 1.4em;
 }
-.beach .works-view ul li .overlay:hover {
+.beach #works ul li .overlay:hover {
   color: #ffffff;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
   background: rgba(88, 173, 135, 0.85);
 }
-.beach .works-view ul li img {
+.beach #works ul li img {
   width: 235px;
 }
-.beach .hello-view {
+.beach #hello {
   height: 100%;
   text-align: left;
   color: #4b4b4b;
 }
-.beach .hello-view h1 {
+.beach #hello h1 {
   font-family: Raleway, sans-serif;
   font-weight: 200;
   font-size: 2.5em;
   margin: 1em 0;
 }
-.beach .hello-view p {
+.beach #hello p {
   font-family: Lato, sans-serif;
   font-weight: 300;
 }
-.beach .hello-view ul {
+.beach #hello ul {
   margin-top: 4em;
 }
-.beach .hello-view ul li {
+.beach #hello ul li {
   padding-right: .6em;
   font-size: 1.5em;
   display: inline-block;
 }
-.beach .hello-view ul li a {
+.beach #hello ul li a {
   color: #66bfc2;
   text-decoration: none;
   -webkit-transition: color 250ms linear;
@@ -336,10 +340,10 @@ header .welcome button:hover {
   -ms-transition: color 250ms linear;
   transition: color 250ms linear;
 }
-.beach .hello-view ul li a:hover {
+.beach #hello ul li a:hover {
   color: #52B384;
 }
-.beach .hello-view footer {
+.beach #hello footer {
   margin: 10em 0em .5em;
   font-size: .9em;
   font-weight: 300;
