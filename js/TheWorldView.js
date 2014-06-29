@@ -45,10 +45,10 @@ var TheWorldView = Backbone.View.extend({
   },
 
   goWork: function() {
-    TweenLite.to(window, 0.5, { scrollTo: { y: $(".works-view").offset().top - 80} });
+    TweenLite.to(window, 0.5, { scrollTo: { y: $(".works-view").offset().top - 140} });
   },
 
   sayHello: function() {
-    TweenLite.to(window, 0.5, { scrollTo: { y: $(".hello-view").offset().top} });
+    TweenLite.to(window, 0.5, { scrollTo: { y: $(".hello-view").offset().top - 60} });
   }
 });

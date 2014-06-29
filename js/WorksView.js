@@ -4,12 +4,14 @@ var WorksView = Backbone.View.extend({
   },
 
   initialize : function() {
-    this.template = Handlebars.compile($("#works-view-template").html());
+    this.writingsTemplate = Handlebars.compile($("#works-view-writings-template").html())
+    this.photosTemplate = Handlebars.compile($("#works-view-photos-template").html());
     this.collection = new Works();
   },
 
   render : function() {
-    this.collection.fetch(this.$el, this.template);
+    this.collection.fetchWritings(this.$el, this.writingsTemplate);
+    this.collection.fetchPhotos(this.$el, this.photosTemplate);
   },
 
   remove : function() {

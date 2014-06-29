@@ -5,21 +5,32 @@ var Works = Backbone.Collection.extend({
     _500px.init({
       sdk_key: 'a68318ac6a5a20260bbdbecdd3cf6976c051b84a'
     });
+
+    this.writings = [
+      {
+        mmdd : "0628",
+        yyyy : "2014",
+        title : "Redesigning a Redesign of a Redesign",
+        subtitle: "... and it goes on and on"
+      }
+    ];
   },
 
-  fetch: function($el, template) {
+  fetchWritings: function($el, template) {
+    $el.append(template({works : this.writings}));
+  },
+
+  fetchPhotos: function($el, template) {
     var that = this;
+    that.photos = [];
     _500px.api('/photos', {feature: "user", username : "kzmeyao", image_size : "3", sort : "taken_at"}, function (response) {
       if (response.success) {
-        var photos = response.data.photos;
-        $.each(photos, function(index, photo) {
+        $.each(response.data.photos, function(index, photo) {
           photo.taken_at = photo.taken_at.substring(0,10).replace(/-/g, ".");
-          photo.photo = true;
-          that.models.push(photo);
+          that.photos.push(photo);
         });
-        console.log(that.models);
-        $el.append(template({works : that.models}));
-        var $container = $el.find("ul");
+        $el.append(template({works : that.photos}));
+        var $container = $el.find("ul.photos");
         $container.imagesLoaded( function() {
           TweenLite.to($container, 0.7, {y : "-5"});
           TweenLite.to($container, 0.7, {autoAlpha : "1"});
