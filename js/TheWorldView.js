@@ -4,6 +4,8 @@ var TheWorldView = Backbone.View.extend({
   },
 
   initialize : function() {
+    $("header").css({height: $(window).height()});
+    $("header>.overlay").css({height: $(window).height()});
     this.ocean = new OceanView({el : "header"});
 
     var that = this;
