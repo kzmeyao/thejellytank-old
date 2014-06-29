@@ -74,7 +74,11 @@
 <script id="works-view-template" type="text/x-handlebars-template">
     <ul>
         {{#each works}}
-        <li><div class="overlay">{{created_at}}</div><img src="{{image_url}}" /></li>
+        <li>
+            {{#if photo}}
+            <div class="overlay">{{taken_at}}</div><img src="{{image_url}}" />
+            {{/if}}
+        </li>
         {{/each}}
     </ul>
 </script>

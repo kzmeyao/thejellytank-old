@@ -28,7 +28,7 @@ var Bloom = function(jellySvg, tank, color, frequency, carryingCapacity) {
 
   var tank = document.getElementById(tank) || document.getElementsByTagName(tank)[0];
   var jellyCt = 0;
-  var w = tank.offsetWidth;
+  var w = tank.offsetWidth - 20;
   var y = tank.offsetHeight;
   var dist = Math.round(-y/4);
 
@@ -41,7 +41,7 @@ var Bloom = function(jellySvg, tank, color, frequency, carryingCapacity) {
       clearInterval(intervalId);
       return;
     }
-    var xOffset = Math.floor((Math.random() * w) + 1);
+    var xOffset = 10 + Math.floor((Math.random() * w) + 1);
     var jelly = document.getElementById(jellySvg).cloneNode(true);
     jelly.id = "svg" + jellyCt;
     jelly.style.marginLeft = xOffset + "px";

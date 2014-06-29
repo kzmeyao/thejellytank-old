@@ -13,7 +13,8 @@ var Works = Backbone.Collection.extend({
       if (response.success) {
         var photos = response.data.photos;
         $.each(photos, function(index, photo) {
-          photo.created_at = photo.created_at.substring(0,10).replace(/-/g, ".");
+          photo.taken_at = photo.taken_at.substring(0,10).replace(/-/g, ".");
+          photo.photo = true;
           that.models.push(photo);
         });
         console.log(that.models);
