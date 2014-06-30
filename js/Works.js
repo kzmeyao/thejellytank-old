@@ -23,24 +23,16 @@ var Works = Backbone.Collection.extend({
   fetchPhotos: function($el, template) {
     var that = this;
     that.photos = [];
-    _500px.api('/photos', {feature: "user", username : "kzmeyao", image_size : "3", sort : "taken_at"}, function (response) {
+    _500px.api('/photos', {feature: "user", username : "kzmeyao", image_size : "4", sort : "taken_at"}, function (response) {
       if (response.success) {
         $.each(response.data.photos, function(index, photo) {
           photo.taken_at = photo.taken_at.substring(0,10).replace(/-/g, ".");
-          that.photos.push(photo);
-        });
-        $el.append(template({works : that.photos}));
-        var $container = $el.find("ul.photos");
-        $container.imagesLoaded( function() {
-          TweenLite.to($container, 0.7, {y : "-5"});
-          TweenLite.to($container, 0.7, {autoAlpha : "1"});
-          $container.masonry({
-            isFitWidth: true
-          });
-          if (Backbone.history.fragment === 'hello') {
-            App.view.sayHello();
+          if(photo.width > photo.height) {
+            // didn't want to use masonry
+            that.photos.push(photo);
           }
         });
+        $el.append(template({works : that.photos}));
       } else {
         console.log('Unable to complete request: ' + response.status + ' - ' + response.error_message);
       }

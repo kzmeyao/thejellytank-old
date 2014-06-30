@@ -53,6 +53,7 @@ div.icon-keyboard {
   color: #999999;
   font-size: 1.8em;
   margin: 2em auto;
+  text-align: center;
 }
 ul,
 li {
@@ -280,14 +281,17 @@ header .welcome button:hover {
   margin: 0 auto;
 }
 .beach .works-view ul.photos {
-  opacity: 0;
+  width: 100%;
 }
 .beach .works-view ul.photos li {
+  position: relative;
   display: inline-block;
-  border: 1px solid #ffffff;
+  float: left;
   cursor: pointer;
+  width: 25%;
 }
 .beach .works-view ul.photos li .overlay {
+  padding: .5em 0em 0em .5em;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -298,20 +302,20 @@ header .welcome button:hover {
   transition: all 0.3s;
   top: 0;
   left: 0;
-  line-height: 235px;
   font-family: Lato, sans-serif;
   font-weight: 300;
-  font-size: 1.4em;
+  font-size: 1.2em;
+  font-style: italic;
 }
 .beach .works-view ul.photos li .overlay:hover {
-  color: #ffffff;
+  color: #66bfc2;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
-  background: rgba(88, 173, 135, 0.9);
+  background: rgba(255, 255, 255, 0.95);
 }
 .beach .works-view ul.photos li img {
-  width: 235px;
+  width: 100%;
 }
 .beach .works-view ul.writings li {
   color: #666666;
@@ -335,6 +339,9 @@ header .welcome button:hover {
   height: 100%;
   text-align: left;
   color: #666666;
+}
+.beach .hello-view .the-world {
+  text-align: left;
 }
 .beach .hello-view h1 {
   font-family: Raleway, sans-serif;
@@ -376,12 +383,20 @@ header .welcome button:hover {
   color: #999;
   font-family: Lato, sans-serif;
 }
+@media only screen and (max-width: 1000px) {
+  ul.photos li {
+    width: 33.333333333333336% !important;
+  }
+}
 @media only screen and (max-width: 800px) {
   header nav {
     font-weight: 200;
   }
   header nav ul li {
     margin-left: 3em !important;
+  }
+  ul.photos li {
+    width: 50% !important;
   }
   ul.writings li em {
     display: none;
@@ -390,5 +405,10 @@ header .welcome button:hover {
     color: #999999;
     font-weight: 300;
     font-size: .8em;
+  }
+}
+@media only screen and (max-width: 600px) {
+  ul.photos li {
+    width: 100% !important;
   }
 }
