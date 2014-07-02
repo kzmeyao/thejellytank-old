@@ -291,6 +291,8 @@ header .welcome button:hover {
   width: 25%;
 }
 .beach .works-view ul.photos li figure {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   position: relative;
   height: 0;
   overflow: hidden;
@@ -309,11 +311,10 @@ header .welcome button:hover {
   -webkit-transform: scale(1);
 }
 .beach .works-view ul.photos li figure img:hover {
-  opacity: .5;
-  transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -webkit-transform: scale(1.2);
+  transform: scale(0.98);
+  -ms-transform: scale(0.98);
+  -moz-transform: scale(0.98);
+  -webkit-transform: scale(0.98);
 }
 .beach .works-view ul.writings li {
   color: #666666;

@@ -311,6 +311,8 @@ header {
         width: 25%;
 
         figure {
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 
           img {
             position: absolute;
@@ -325,11 +327,10 @@ header {
             -webkit-transform:scale(1);
 
             &:hover {
-              opacity: .5;
-              transform:scale(1.2);
-              -ms-transform:scale(1.2);
-              -moz-transform:scale(1.2);
-              -webkit-transform:scale(1.2);
+              transform:scale(.98);
+              -ms-transform:scale(.98);
+              -moz-transform:scale(.98);
+              -webkit-transform:scale(.98);
             }
           }
           position: relative;
