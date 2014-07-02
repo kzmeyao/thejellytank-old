@@ -29,6 +29,18 @@ var TheWorldView = Backbone.View.extend({
           that.persist = true;
           TweenLite.to($navOverlay, 0.3, {height: "100%"});
         }
+
+        var lazys = $(".lazy-img");
+        if (lazys) {
+          $.each(lazys, function (index, img) {
+            var rect = img.getBoundingClientRect();
+            if (rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + 500) {
+              img.className = "loaded-img";
+              img.src = img.getAttribute("data-src");
+            }
+          });
+        }
       }
     }, 250);
 

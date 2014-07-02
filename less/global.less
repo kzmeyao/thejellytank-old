@@ -340,12 +340,22 @@ header {
             -webkit-transition: all 0.3s;
             -moz-transition: all 0.3s;
             transition: all 0.3s;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.85);
           }
         }
 
-        img {
+        figure {
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width:100%;
+          }
           width: 100%;
+          position: relative;
+          height: 0;
+          overflow: hidden;
+          padding-bottom: 596/9%;
         }
       }
     }
@@ -359,6 +369,7 @@ header {
         em {
           color: #66bfc2;
           font-size: .6em;
+          font-weight: 300 !important;
         }
         strong {
           color: #999999;
@@ -455,14 +466,6 @@ header {
         font-weight: 300;
         font-size: .8em;
       }
-    }
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  ul.photos {
-    li {
-      width: 100% !important;
     }
   }
 }

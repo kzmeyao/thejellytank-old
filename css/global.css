@@ -320,9 +320,19 @@ header .welcome button:hover {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.85);
 }
-.beach .works-view ul.photos li img {
+.beach .works-view ul.photos li figure {
+  width: 100%;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 66.22222222222223%;
+}
+.beach .works-view ul.photos li figure img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
 }
 .beach .works-view ul.writings li {
@@ -334,6 +344,7 @@ header .welcome button:hover {
 .beach .works-view ul.writings li em {
   color: #66bfc2;
   font-size: .6em;
+  font-weight: 300 !important;
 }
 .beach .works-view ul.writings li strong {
   color: #999999;
@@ -413,10 +424,5 @@ header .welcome button:hover {
     color: #999999;
     font-weight: 300;
     font-size: .8em;
-  }
-}
-@media only screen and (max-width: 600px) {
-  ul.photos li {
-    width: 100% !important;
   }
 }

@@ -90,7 +90,10 @@
     <ul class="photos clearfix">
         {{#each works}}
         <li>
-            <div class="overlay">{{taken_at}}</div><img src="{{image_url}}" />
+            <div class="overlay">{{taken_at}}</div>
+            <figure>
+                <img class="lazy-img" src="images/white.png" data-src="{{image_url}}" />
+            </figure>
         </li>
         {{/each}}
     </ul>
