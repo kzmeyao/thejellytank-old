@@ -8,10 +8,9 @@ var Works = Backbone.Collection.extend({
 
     this.writings = [
       {
-        mmdd : "0628",
-        yyyy : "2014",
+        date : "06.28.2014",
         title : "Redesigning a Redesign of a Redesign",
-        subtitle: "... and it goes on and on"
+        tags: "Essay, Random Thoughts"
       }
     ];
   },
