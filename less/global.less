@@ -137,7 +137,7 @@ header {
       float: left;
       width: @navLength;
       height: 100%;
-      background-color: rgba(255,255,255,.2);
+      background-color: rgba(255, 255, 255, 0.2);
       text-align: center;
       cursor: pointer;
 
@@ -189,11 +189,7 @@ header {
         &:after, &:before {
           opacity: 0;
           position: absolute;
-          -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-          -moz-transition: -moz-transform 0.3s, opacity 0.3s;
-          -o-transition: -o-transform 0.3s, opacity 0.3s;
-          -ms-transition: -ms-transform 0.3s, opacity 0.3s;
-          transition: transform 0.3s, opacity 0.3s;
+          .transition(0.3s);
         }
         &:hover:after, &:hover:before {
           opacity: 1;
