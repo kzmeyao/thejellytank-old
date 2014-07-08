@@ -397,9 +397,6 @@ header .welcome button:hover {
   ul.photos li {
     width: 50% !important;
   }
-  ul.writings li em {
-    display: none;
-  }
   ul.writings li strong {
     color: #999999;
     font-weight: 300;
