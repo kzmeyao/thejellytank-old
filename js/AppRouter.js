@@ -2,7 +2,8 @@ var AppRouter = Backbone.Router.extend({
   routes: {
     "": "home",
     "works" : "works",
-    "hello" : "hello"
+    "hello" : "hello",
+    "photo/:id" : "photo"
   },
 
   home : function() {
@@ -27,5 +28,13 @@ var AppRouter = Backbone.Router.extend({
       this.view.render();
     }
     this.view.sayHello();
+  },
+
+  photo : function(id) {
+    if(!this.view) {
+      this.view = new TheWorldView({el : "body"});
+      this.view.render();
+    }
+    this.view.takePicture(id);
   }
 });

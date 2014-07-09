@@ -59,10 +59,14 @@ var TheWorldView = Backbone.View.extend({
   },
 
   goWork: function() {
-    TweenLite.to(window, 0.5, { scrollTo: { y: $(".works-view").offset().top - 140} });
+    TweenLite.to(window, 0.5, { scrollTo: { y: $(".works-view").offset().top - 80} });
   },
 
   sayHello: function() {
-    TweenLite.to(window, 0.5, { scrollTo: { y: $(".hello-view").offset().top - 110} });
+    TweenLite.to(window, 0.5, { scrollTo: { y: $(".hello-view").offset().top - 80} });
+  },
+
+  takePicture: function(id) {
+    this.worksView.renderCloud("photo", id);
   }
 });

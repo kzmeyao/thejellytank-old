@@ -4,7 +4,7 @@ var WorksView = Backbone.View.extend({
   },
 
   initialize : function() {
-    this.writingsTemplate = Handlebars.compile($("#works-view-writings-template").html())
+    this.writingsTemplate = Handlebars.compile($("#works-view-writings-template").html());
     this.photosTemplate = Handlebars.compile($("#works-view-photos-template").html());
     this.collection = new Works();
   },
@@ -16,5 +16,12 @@ var WorksView = Backbone.View.extend({
 
   remove : function() {
     this.$el.empty();
+  },
+
+  renderCloud : function(type, id) {
+    if(!this.cloud) {
+      this.cloud = new CloudView({el : "body"});
+    }
+    this.cloud.render(type, id);
   }
 });
