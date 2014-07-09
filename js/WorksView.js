@@ -1,6 +1,6 @@
 var WorksView = Backbone.View.extend({
   events: {
-
+    "click .photos img" : "renderPhotoCloud"
   },
 
   initialize : function() {
@@ -18,9 +18,13 @@ var WorksView = Backbone.View.extend({
     this.$el.empty();
   },
 
-  renderCloud : function(type, id) {
+  renderPhotoCloud : function(e) {
+    this.renderCloud("photo", $(e.currentTarget).data("id"));
+  },
+
+  renderCloud: function(type, id) {
     if(!this.cloud) {
-      this.cloud = new CloudView({el : "body"});
+      this.cloud = new CloudView({el : "body", works : this.collection});
     }
     this.cloud.render(type, id);
   }
