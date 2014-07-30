@@ -1,8 +1,7 @@
 var CloudView = Backbone.View.extend({
   events: {
     "click .cloud-logo" : "goHome",
-    "click .cloud-nav-works" : "goWork",
-    "click .cloud-nav-hello" : "sayHello"
+    "click .close" : "close"
   },
 
   initialize : function(options) {
@@ -24,7 +23,6 @@ var CloudView = Backbone.View.extend({
           if (response.success) {
             $.each(response.data.photos, function(index, photo) {
               if(photo.width > photo.height) {
-                // didn't want to use masonry
                 that.photos.push(photo);
               }
             });
@@ -43,10 +41,52 @@ var CloudView = Backbone.View.extend({
 
   startTheShowFrom : function(id) {
     var that = this;
+    var slides = [];
     $.each(this.photos, function (index, photo) {
+      slides.push("<img src='" + photo.image_url + "' />");
       if (photo.id == id) {
         that.index = index;
       }
+    });
+    var	gallery,
+      el,
+      i,
+      page;
+
+    gallery = new SwipeView('#wrapper', { numberOfPages: slides.length });
+    for (i=0; i<3; i++) {
+      page = i==0 ? slides.length-1 : i-1;
+      el = document.createElement('span');
+      el.innerHTML = slides[page];
+      gallery.masterPages[i].appendChild(el);
+    }
+    gallery.onFlip(function () {
+      var el,
+        upcoming,
+        i;
+
+      for (i=0; i<3; i++) {
+        upcoming = gallery.masterPages[i].dataset.upcomingPageIndex;
+
+        if (upcoming != gallery.masterPages[i].dataset.pageIndex) {
+          el = gallery.masterPages[i].querySelector('span');
+          el.innerHTML = slides[upcoming];
+          el.className = 'loading';
+          el.width = slides[upcoming].width;
+          el.height = slides[upcoming].height;
+
+          el = gallery.masterPages[i].querySelector('span');
+        }
+      }
+    });
+
+    gallery.onMoveOut(function () {
+      gallery.masterPages[gallery.currentMasterPage].className = gallery.masterPages[gallery.currentMasterPage].className.replace(/(^|\s)swipeview-active(\s|$)/, '');
+    });
+
+    gallery.onMoveIn(function () {
+      var className = gallery.masterPages[gallery.currentMasterPage].className;
+      /(^|\s)swipeview-active(\s|$)/.test(className) || (gallery.masterPages[gallery.currentMasterPage].className = !className ? 'swipeview-active' : className + ' swipeview-active');
     });
     console.log(this.index);
   },
@@ -54,16 +94,6 @@ var CloudView = Backbone.View.extend({
   goHome : function() {
     this.close();
     App.navigate("", {trigger : true});
-  },
-
-  goWork : function() {
-    this.close();
-    App.navigate("works", {trigger : true});
-  },
-
-  sayHello : function() {
-    this.close();
-    App.navigate("hello", {trigger : true});
   },
 
   close : function() {

@@ -7,11 +7,11 @@ html, body {
 
 @font-face {
   font-family: 'icomoon';
-  src:url('../fonts/icomoon.eot?z2th35');
-  src:url('../fonts/icomoon.eot?#iefixz2th35') format('embedded-opentype'),
-  url('../fonts/icomoon.woff?z2th35') format('woff'),
-  url('../fonts/icomoon.ttf?z2th35') format('truetype'),
-  url('../fonts/icomoon.svg?z2th35#icomoon') format('svg');
+  src:url('../fonts/icomoon.eot?-yck7sw');
+  src:url('../fonts/icomoon.eot?#iefix-yck7sw') format('embedded-opentype'),
+  url('../fonts/icomoon.woff?-yck7sw') format('woff'),
+  url('../fonts/icomoon.ttf?-yck7sw') format('truetype'),
+  url('../fonts/icomoon.svg?-yck7sw#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,8 @@ html, body {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+
+  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -42,6 +44,9 @@ html, body {
 }
 .icon-linkedin:before {
   content: "\e605";
+}
+.icon-close:before {
+  content: "\e600";
 }
 .icon-camera:before {
   content: "\e606";
@@ -387,18 +392,32 @@ nav {
   top: 0;
   left: 0;
   overflow: hidden;
-  background: rgba(255, 255, 255, 1);
+  background: rgba(0, 0, 0, .95);
   z-index: 999;
 
   nav {
     color: #333333;
     .logo {
-      background: #bbbbbb;
+      background: none;
+      &.close {
+        float: right;
+        .icon-close {
+          font-size: 0.8em;
+          color: #ffffff;
+          vertical-align: middle;
+        }
+      }
       #cloud-jelly {
         visibility: hidden;
         display: inline-block;
       }
     }
+  }
+
+  #wrapper {
+    margin-top: @navHeight + 1em;
+    height: 100%;
+    text-align: center;
   }
 }
 
