@@ -42,8 +42,14 @@ var CloudView = Backbone.View.extend({
   startTheShowFrom : function(id) {
     var that = this;
     var slides = [];
+    var w = 900;
+    var h = 598;
     $.each(this.photos, function (index, photo) {
-      slides.push("<img src='" + photo.image_url + "' />");
+      slides.push({
+        img: photo.image_url,
+        width: w,
+        height: h
+      });
       if (photo.id == id) {
         that.index = index;
       }
@@ -59,10 +65,15 @@ var CloudView = Backbone.View.extend({
     gallery = new SwipeView('#wrapper', { numberOfPages: slides.length });
     for (i=0; i<3; i++) {
       page = i==0 ? slides.length-1 : i-1;
-      el = document.createElement('span');
-      el.innerHTML = slides[page];
+      el = document.createElement('img');
+      el.className = 'loading';
+      el.src = slides[page].img;
+      el.width = slides[page].width;
+      el.height = slides[page].height;
+      el.onload = function () { this.className = ''; }
       gallery.masterPages[i].appendChild(el);
     }
+
     gallery.onFlip(function () {
       var el,
         upcoming,
@@ -72,13 +83,11 @@ var CloudView = Backbone.View.extend({
         upcoming = gallery.masterPages[i].dataset.upcomingPageIndex;
 
         if (upcoming != gallery.masterPages[i].dataset.pageIndex) {
-          el = gallery.masterPages[i].querySelector('span');
-          el.innerHTML = slides[upcoming];
+          el = gallery.masterPages[i].querySelector('img');
           el.className = 'loading';
+          el.src = slides[upcoming].img;
           el.width = slides[upcoming].width;
           el.height = slides[upcoming].height;
-
-          el = gallery.masterPages[i].querySelector('span');
         }
       }
     });
@@ -91,7 +100,6 @@ var CloudView = Backbone.View.extend({
       var className = gallery.masterPages[gallery.currentMasterPage].className;
       /(^|\s)swipeview-active(\s|$)/.test(className) || (gallery.masterPages[gallery.currentMasterPage].className = !className ? 'swipeview-active' : className + ' swipeview-active');
     });
-    console.log(this.index);
   },
 
   goHome : function() {

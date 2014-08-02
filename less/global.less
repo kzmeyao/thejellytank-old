@@ -392,7 +392,7 @@ nav {
   top: 0;
   left: 0;
   overflow: hidden;
-  background: rgba(0, 0, 0, .95);
+  background: rgba(255, 255, 255, .99);
   z-index: 999;
 
   nav {
@@ -415,9 +415,19 @@ nav {
   }
 
   #wrapper {
-    margin-top: @navHeight + 1em;
     height: 100%;
     text-align: center;
+    #swipeview-masterpage-0,
+    #swipeview-masterpage-1,
+    #swipeview-masterpage-2 {
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em; /* Adjusts for spacing */
+      }
+    }
   }
 }
 

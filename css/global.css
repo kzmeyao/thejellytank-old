@@ -397,7 +397,7 @@ nav ul li:hover:before {
   top: 0;
   left: 0;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(255, 255, 255, 0.99);
   z-index: 999;
 }
 .cloud nav {
@@ -419,9 +419,18 @@ nav ul li:hover:before {
   display: inline-block;
 }
 .cloud #wrapper {
-  margin-top: 6em;
   height: 100%;
   text-align: center;
+}
+.cloud #wrapper #swipeview-masterpage-0:before,
+.cloud #wrapper #swipeview-masterpage-1:before,
+.cloud #wrapper #swipeview-masterpage-2:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+  /* Adjusts for spacing */
 }
 @media only screen and (max-width: 1000px) {
   ul.photos li {
