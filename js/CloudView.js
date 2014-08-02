@@ -18,7 +18,7 @@ var CloudView = Backbone.View.extend({
       .to($jelly, 1, {autoAlpha: 1});
     if (type == "photo") {
       var that = this;
-      if (!this.photos) {
+      if (this.photos.length === 0) {
         _500px.api('/photos', {feature: "user", username : "kzmeyao", image_size : "4", sort : "taken_at"}, function (response) {
           if (response.success) {
             $.each(response.data.photos, function(index, photo) {
@@ -48,6 +48,9 @@ var CloudView = Backbone.View.extend({
         that.index = index;
       }
     });
+    var p1 = slides.slice(0,this.index);
+    var p2 = slides.slice(this.index);
+    slides = p2.concat(p1);
     var	gallery,
       el,
       i,

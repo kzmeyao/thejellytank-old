@@ -20,7 +20,6 @@ var WorksView = Backbone.View.extend({
 
   renderPhotoCloud : function(e) {
     App.navigate('photo/' + $(e.currentTarget).data("id"), {'trigger' : true});
-//    this.renderCloud("photo", $(e.currentTarget).data("id"));
   },
 
   renderCloud: function(type, id) {
