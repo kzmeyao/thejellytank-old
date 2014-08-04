@@ -234,7 +234,7 @@ nav ul li:after {
   -ms-transform: translateX(3px);
   -o-transform: translateX(3px);
   transform: translateX(3px);
-  left: -15px;
+  left: -12px;
 }
 nav ul li:before {
   display: inline-block;
@@ -245,7 +245,7 @@ nav ul li:before {
   -ms-transform: translateX(-3px);
   -o-transform: translateX(-3px);
   transform: translateX(-3px);
-  left: -15px;
+  left: -12px;
   content: '>';
 }
 nav ul li:after,
