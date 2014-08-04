@@ -229,22 +229,22 @@ nav ul li:after {
   display: inline-block;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transform: translateX(5px);
-  -moz-transform: translateX(5px);
-  -ms-transform: translateX(5px);
-  -o-transform: translateX(5px);
-  transform: translateX(5px);
+  -webkit-transform: translateX(3px);
+  -moz-transform: translateX(3px);
+  -ms-transform: translateX(3px);
+  -o-transform: translateX(3px);
+  transform: translateX(3px);
   left: -15px;
 }
 nav ul li:before {
   display: inline-block;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transform: translateX(-5px);
-  -moz-transform: translateX(-5px);
-  -ms-transform: translateX(-5px);
-  -o-transform: translateX(-5px);
-  transform: translateX(-5px);
+  -webkit-transform: translateX(-3px);
+  -moz-transform: translateX(-3px);
+  -ms-transform: translateX(-3px);
+  -o-transform: translateX(-3px);
+  transform: translateX(-3px);
   left: -15px;
   content: '>';
 }
