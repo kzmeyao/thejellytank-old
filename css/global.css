@@ -429,8 +429,6 @@ nav ul li:hover:before {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
-  margin-right: -0.25em;
-  /* Adjusts for spacing */
 }
 @media only screen and (max-width: 1000px) {
   ul.photos li {

@@ -7,6 +7,7 @@ var CloudView = Backbone.View.extend({
   initialize : function(options) {
     this.template = Handlebars.compile($("#cloud-template").html());
     this.photos = options.works.photos;
+    this.ratio = 598/900;
   },
 
   render : function(type, id) {
@@ -42,8 +43,9 @@ var CloudView = Backbone.View.extend({
   startTheShowFrom : function(id) {
     var that = this;
     var slides = [];
-    var w = 900;
-    var h = 598;
+    var bodyW = $("body").width();
+    var w = bodyW > 900 ? 900 : bodyW;
+    var h = w * this.ratio;
     $.each(this.photos, function (index, photo) {
       slides.push({
         img: photo.image_url,
