@@ -16,7 +16,8 @@ var OceanView = Backbone.View.extend({
     var image = new Image();
     image.src = "../images/splash.jpg";
     image.onload = function() {
-      $(".backgroundsize header").css('background', "url(" + image.src + ") no-repeat center 75% scroll");
+      $(".backgroundsize header").css('background', "url(" + image.src + ") no-repeat center 75% scroll")
+                                 .css('background-size', 'cover');
       var $jelly = $("#jelly"),
           tl = new TimelineLite();
       tl.to($jelly, 1, {scale : 2.5})

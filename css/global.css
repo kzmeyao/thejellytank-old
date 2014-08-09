@@ -91,6 +91,7 @@ header {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  background-size: cover;
 }
 header.fixed {
   position: fixed;
@@ -318,11 +319,11 @@ nav ul li:hover:before {
   transition: all 0.3s;
 }
 .beach .works-view ul.photos li figure img:hover {
-  -webkit-transform: scale(0.97);
-  -moz-transform: scale(0.97);
-  -ms-transform: scale(0.97);
-  -o-transform: scale(0.97);
-  transform: scale(0.97);
+  -webkit-transform: scale(0.99);
+  -moz-transform: scale(0.99);
+  -ms-transform: scale(0.99);
+  -o-transform: scale(0.99);
+  transform: scale(0.99);
 }
 .beach .works-view ul.writings li {
   color: #666666;

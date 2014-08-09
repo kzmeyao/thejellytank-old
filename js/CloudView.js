@@ -1,7 +1,6 @@
 var CloudView = Backbone.View.extend({
   events: {
-    "click .cloud-logo" : "goHome",
-    "click .close" : "close"
+    "click .icon-cancel" : "close"
   },
 
   initialize : function(options) {
@@ -50,7 +49,8 @@ var CloudView = Backbone.View.extend({
       slides.push({
         img: photo.image_url,
         width: w,
-        height: h
+        height: h,
+        id: photo.id
       });
       if (photo.id == id) {
         that.index = index;
@@ -72,11 +72,13 @@ var CloudView = Backbone.View.extend({
       el.src = slides[page].img;
       el.width = slides[page].width;
       el.height = slides[page].height;
+      el.setAttribute("data-id", slides[page].id);
       el.onload = function () { this.className = ''; }
       gallery.masterPages[i].appendChild(el);
     }
 
     gallery.onFlip(function () {
+      App.navigate("photo/" + $(".swipeview-active img").data('id'));
       var el,
         upcoming,
         i;
@@ -90,6 +92,7 @@ var CloudView = Backbone.View.extend({
           el.src = slides[upcoming].img;
           el.width = slides[upcoming].width;
           el.height = slides[upcoming].height;
+          el.setAttribute("data-id", slides[upcoming].id);
         }
       }
     });
@@ -104,13 +107,9 @@ var CloudView = Backbone.View.extend({
     });
   },
 
-  goHome : function() {
-    this.close();
-    App.navigate("", {trigger : true});
-  },
-
   close : function() {
     this.$el.removeClass("cloudy");
     this.$el.find(".cloud").remove();
+    App.navigate('works');
   }
 });
