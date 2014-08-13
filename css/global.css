@@ -398,9 +398,11 @@ nav ul li:hover:before {
   height: 100%;
   width: 100%;
   position: fixed;
+  margin-top: 20px;
   top: 0;
   left: 0;
   overflow: hidden;
+  opacity: 0;
   background: rgba(255, 255, 255, 0.99);
   z-index: 999;
 }

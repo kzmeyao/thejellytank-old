@@ -12,10 +12,10 @@ var CloudView = Backbone.View.extend({
   render : function(type, id) {
     this.$el.addClass("cloudy");
     this.$el.append(this.template());
-    var $jelly = $("#cloud-jelly"),
-      tl = new TimelineLite();
-    tl.to($jelly, 1, {scale : 2.5})
-      .to($jelly, 1, {autoAlpha: 1});
+    var $cloud = $(".cloud");
+    var tl = new TimelineLite();
+    tl.to($cloud, 0.3, {autoAlpha : 1})
+      .to($cloud, 0.3, {y: "-20"}, "-=0.3");
     if (type == "photo") {
       var that = this;
       if (this.photos.length === 0) {
@@ -108,8 +108,14 @@ var CloudView = Backbone.View.extend({
   },
 
   close : function() {
-    this.$el.removeClass("cloudy");
-    this.$el.find(".cloud").remove();
+    var $cloud = $(".cloud");
+    var tl = new TimelineLite();
+    var that = this;
+    tl.to($cloud, 0.3, {autoAlpha : 0})
+      .to($cloud, 0.3, {y: "20", onComplete: function() {
+        that.$el.removeClass("cloudy");
+        that.$el.find(".cloud").remove();
+      }}, "-=0.3");
     App.navigate('works');
   }
 });
