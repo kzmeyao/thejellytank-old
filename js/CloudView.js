@@ -1,6 +1,7 @@
 var CloudView = Backbone.View.extend({
   events: {
-    "click .icon-cancel" : "close"
+    "click .icon-cancel" : "close",
+    "click #wrapper" : "close"
   },
 
   initialize : function(options) {
@@ -107,7 +108,10 @@ var CloudView = Backbone.View.extend({
     });
   },
 
-  close : function() {
+  close : function(e) {
+    if (e.target.tagName == "IMG") {
+      return;
+    }
     var $cloud = $(".cloud");
     var tl = new TimelineLite();
     var that = this;
