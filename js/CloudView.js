@@ -44,13 +44,13 @@ var CloudView = Backbone.View.extend({
     var that = this;
     var slides = [];
     var bodyW = $("body").width();
-    var w = bodyW > 900 ? 900 : bodyW;
-    var h = w * this.ratio;
+    this.w = bodyW > 900 ? 900 : bodyW;
+    this.h = this.w * this.ratio;
     $.each(this.photos, function (index, photo) {
       slides.push({
         img: photo.image_url,
-        width: w,
-        height: h,
+        width: that.w,
+        height: that.h,
         id: photo.id
       });
       if (photo.id == id) {
@@ -74,7 +74,7 @@ var CloudView = Backbone.View.extend({
       el.width = slides[page].width;
       el.height = slides[page].height;
       el.setAttribute("data-id", slides[page].id);
-      el.onload = function () { this.className = ''; }
+      el.onload = function () { this.className = ''; };
       gallery.masterPages[i].appendChild(el);
     }
 
@@ -91,8 +91,8 @@ var CloudView = Backbone.View.extend({
           el = gallery.masterPages[i].querySelector('img');
           el.className = 'loading';
           el.src = slides[upcoming].img;
-          el.width = slides[upcoming].width;
-          el.height = slides[upcoming].height;
+          el.width = that.w;
+          el.height = that.h;
           el.setAttribute("data-id", slides[upcoming].id);
         }
       }
@@ -106,12 +106,24 @@ var CloudView = Backbone.View.extend({
       var className = gallery.masterPages[gallery.currentMasterPage].className;
       /(^|\s)swipeview-active(\s|$)/.test(className) || (gallery.masterPages[gallery.currentMasterPage].className = !className ? 'swipeview-active' : className + ' swipeview-active');
     });
+
+    $(window).resize(function() {
+      var bodyW = $("body").width();
+      that.w = bodyW > 900 ? 900 : bodyW;
+      that.h = that.w * that.ratio;
+      var images = $(".cloud img");
+      $.each(images, function(index, img) {
+        img.setAttribute("width", that.w);
+        img.setAttribute("height", that.h);
+      });
+    });
   },
 
   close : function(e) {
     if (e.target.tagName == "IMG") {
       return;
     }
+    $(window).off("resize");
     var $cloud = $(".cloud");
     var tl = new TimelineLite();
     var that = this;
