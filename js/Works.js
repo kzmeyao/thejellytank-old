@@ -32,6 +32,9 @@ var Works = Backbone.Collection.extend({
           }
         });
         $el.append(template({works : that.photos}));
+        if(Backbone.history.fragment == "hello") {
+          TweenLite.to(window, 0.5, { scrollTo: { y: $(".hello-view").offset().top - 80} });
+        }
       } else {
         console.log('Unable to complete request: ' + response.status + ' - ' + response.error_message);
       }
