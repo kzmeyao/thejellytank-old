@@ -16,7 +16,7 @@ var CloudView = Backbone.View.extend({
     var $cloud = $(".cloud");
     var tl = new TimelineLite();
     var that = this;
-    tl.to($cloud, 0.3, {autoAlpha : 1})
+    tl.to($cloud, 0.3, {autoAlpha : 0.99})
       .to($cloud, 0.3, {y: "-20", onComplete: function() {
         if (type == "photo") {
           if (that.photos.length === 0) {
