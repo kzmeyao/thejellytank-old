@@ -15,29 +15,30 @@ var CloudView = Backbone.View.extend({
     this.$el.append(this.template());
     var $cloud = $(".cloud");
     var tl = new TimelineLite();
+    var that = this;
     tl.to($cloud, 0.3, {autoAlpha : 1})
-      .to($cloud, 0.3, {y: "-20"}, "-=0.3");
-    if (type == "photo") {
-      var that = this;
-      if (this.photos.length === 0) {
-        _500px.api('/photos', {feature: "user", username : "kzmeyao", image_size : "4", sort : "taken_at"}, function (response) {
-          if (response.success) {
-            $.each(response.data.photos, function(index, photo) {
-              if(photo.width > photo.height) {
-                that.photos.push(photo);
+      .to($cloud, 0.3, {y: "-20", onComplete: function() {
+        if (type == "photo") {
+          if (that.photos.length === 0) {
+            _500px.api('/photos', {feature: "user", username : "kzmeyao", image_size : "4", sort : "taken_at"}, function (response) {
+              if (response.success) {
+                $.each(response.data.photos, function(index, photo) {
+                  if(photo.width > photo.height) {
+                    that.photos.push(photo);
+                  }
+                });
+                that.startTheShowFrom(id);
+              } else {
+                console.log('Unable to complete request: ' + response.status + ' - ' + response.error_message);
               }
             });
-            that.startTheShowFrom(id);
           } else {
-            console.log('Unable to complete request: ' + response.status + ' - ' + response.error_message);
+            that.startTheShowFrom(id);
           }
-        });
-      } else {
-        this.startTheShowFrom(id);
-      }
-    } else {
+        } else {
 
-    }
+        }
+      }}, "-=0.3");
   },
 
   startTheShowFrom : function(id) {
@@ -126,6 +127,7 @@ var CloudView = Backbone.View.extend({
     $(window).off("resize");
     var $cloud = $(".cloud");
     var tl = new TimelineLite();
+    $("#wrapper").remove();
     var that = this;
     tl.to($cloud, 0.3, {autoAlpha : 0})
       .to($cloud, 0.3, {y: "20", onComplete: function() {
