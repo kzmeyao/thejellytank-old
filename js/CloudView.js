@@ -7,6 +7,7 @@ var CloudView = Backbone.View.extend({
   initialize : function(options) {
     this.template = Handlebars.compile($("#cloud-template").html());
     this.photos = options.works.photos;
+    this.writings = options.works.writings;
     this.ratio = 598/900;
   },
 
@@ -35,13 +36,23 @@ var CloudView = Backbone.View.extend({
           } else {
             that.startTheShowFrom(id);
           }
-        } else {
-
+        } else if (type == "writing") {
+          that.startTheBookFrom(id);
         }
       }}, "-=0.3");
   },
 
-  startTheShowFrom : function(id) {
+  startTheBookFrom: function(id) {
+    var that = this;
+    $.each(this.writings, function (index, writing) {
+      if (writing.id == id) {
+        that.index = index;
+      }
+    });
+    $("#wrapper").append(this.writings[this.index].content);
+  },
+
+  startTheShowFrom: function(id) {
     var that = this;
     var slides = [];
     var bodyW = $("body").width();

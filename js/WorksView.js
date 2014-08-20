@@ -1,6 +1,7 @@
 var WorksView = Backbone.View.extend({
   events: {
-    "click .photos img" : "renderPhotoCloud"
+    "click .photos img" : "renderPhotoCloud",
+    "click .writings li" : "renderWritingCloud"
   },
 
   initialize : function() {
@@ -20,6 +21,10 @@ var WorksView = Backbone.View.extend({
 
   renderPhotoCloud : function(e) {
     App.navigate('photo/' + $(e.currentTarget).data("id"), {'trigger' : true});
+  },
+
+  renderWritingCloud: function(e) {
+    App.navigate('writing/' + $(e.currentTarget).data("id"), {'trigger' : true});
   },
 
   renderCloud: function(type, id) {

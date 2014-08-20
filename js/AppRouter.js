@@ -3,6 +3,7 @@ var AppRouter = Backbone.Router.extend({
     "": "home",
     "works" : "works",
     "hello" : "hello",
+    "writing/:id" : "writing",
     "photo/:id" : "photo"
   },
 
@@ -28,6 +29,14 @@ var AppRouter = Backbone.Router.extend({
       this.view.render();
     }
     this.view.sayHello();
+  },
+
+  writing: function(id) {
+    if(!this.view) {
+      this.view = new TheWorldView({el : "body"});
+      this.view.render();
+    }
+    this.view.writeSomething(id);
   },
 
   photo : function(id) {

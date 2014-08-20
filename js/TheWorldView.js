@@ -66,6 +66,10 @@ var TheWorldView = Backbone.View.extend({
     TweenLite.to(window, 0.5, { scrollTo: { y: $(".hello-view").offset().top - 80} });
   },
 
+  writeSomething: function(id) {
+    this.worksView.renderCloud("writing", id);
+  },
+
   takePicture: function(id) {
     this.worksView.renderCloud("photo", id);
   }
