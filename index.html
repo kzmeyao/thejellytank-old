@@ -102,7 +102,19 @@
         <div class="close">
             <span class="icon-cancel"></span>
         </div>
-        <div id="wrapper"></div>
+    </div>
+</script>
+
+<script id="photo-template" type="text/x-handlebars-template">
+    <div id="wrapper"></div>
+</script>
+
+<script id="writing-template" type="text/x-handlebars-template">
+    <div class="writing">
+        <h2>{{title}}</h2>
+        <span>{{date}}&nbsp;&nbsp;&nbsp;[&nbsp;{{tags}}&nbsp;]</span>
+        <br />
+        {{{content}}}
     </div>
 </script>
 

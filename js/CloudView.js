@@ -6,6 +6,8 @@ var CloudView = Backbone.View.extend({
 
   initialize : function(options) {
     this.template = Handlebars.compile($("#cloud-template").html());
+    this.photoTemplate = Handlebars.compile($("#photo-template").html());
+    this.writingTemplate = Handlebars.compile($("#writing-template").html());
     this.photos = options.works.photos;
     this.writings = options.works.writings;
     this.ratio = 598/900;
@@ -20,6 +22,7 @@ var CloudView = Backbone.View.extend({
     tl.to($cloud, 0.3, {autoAlpha : 0.99})
       .to($cloud, 0.3, {y: "-20", onComplete: function() {
         if (type == "photo") {
+          $cloud.append(that.photoTemplate());
           if (that.photos.length === 0) {
             _500px.api('/photos', {feature: "user", username : "kzmeyao", image_size : "4", sort : "taken_at"}, function (response) {
               if (response.success) {
@@ -49,7 +52,7 @@ var CloudView = Backbone.View.extend({
         that.index = index;
       }
     });
-    $("#wrapper").append(this.writings[this.index].content);
+    $(".cloud").append(this.writingTemplate(this.writings[this.index]));
   },
 
   startTheShowFrom: function(id) {
@@ -132,7 +135,7 @@ var CloudView = Backbone.View.extend({
   },
 
   close : function(e) {
-    if (e.target.tagName == "IMG") {
+    if (e.target.tagName == "IMG" || e.target.tagName == "P") {
       return;
     }
     $(window).off("resize");
