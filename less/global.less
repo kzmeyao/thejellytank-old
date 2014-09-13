@@ -230,28 +230,18 @@ nav {
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
       -webkit-text-stroke: 0.3px;
-      &:after {
-        content: '<';
-        display: inline-block;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        .transform(translateX(3px));
-        left: -12px;
-      }
       &:before {
+        content: '>';
         display: inline-block;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         .transform(translateX(-3px));
-        left: -12px;
-        content: '>';
-      }
-      &:after, &:before {
+        left: -15px;
         opacity: 0;
         position: absolute;
         .transition(0.3s);
       }
-      &:hover:after, &:hover:before {
+      &:hover:before {
         opacity: 1;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;

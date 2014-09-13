@@ -225,19 +225,8 @@ nav ul li {
   backface-visibility: hidden;
   -webkit-text-stroke: 0.3px;
 }
-nav ul li:after {
-  content: '<';
-  display: inline-block;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateX(3px);
-  -moz-transform: translateX(3px);
-  -ms-transform: translateX(3px);
-  -o-transform: translateX(3px);
-  transform: translateX(3px);
-  left: -12px;
-}
 nav ul li:before {
+  content: '>';
   display: inline-block;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -246,11 +235,7 @@ nav ul li:before {
   -ms-transform: translateX(-3px);
   -o-transform: translateX(-3px);
   transform: translateX(-3px);
-  left: -12px;
-  content: '>';
-}
-nav ul li:after,
-nav ul li:before {
+  left: -15px;
   opacity: 0;
   position: absolute;
   -webkit-transition: 0.3s;
@@ -259,7 +244,6 @@ nav ul li:before {
   -ms-transition: 0.3s;
   transition: 0.3s;
 }
-nav ul li:hover:after,
 nav ul li:hover:before {
   opacity: 1;
   -webkit-backface-visibility: hidden;
